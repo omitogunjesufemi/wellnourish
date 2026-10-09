@@ -5,7 +5,7 @@ This is where all interactions with the web browser starts from
 
 This is also the entry point of the application
 """
-from flask_cors import CORS
+
 from creds import secretKey
 from models import storage
 from flask import (Flask, flash, render_template, session,

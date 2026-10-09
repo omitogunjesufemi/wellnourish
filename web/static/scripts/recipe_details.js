@@ -1,6 +1,6 @@
 $(document).ready(function (){
     let recipe_id = $('.hidden-text').text()
-    $.get(`http://127.0.0.1:5001/api/v1/recipes/${recipe_id}`, function (recipe) {
+    $.get(`http://0.0.0.0:5001/api/v1/recipes/${recipe_id}`, function (recipe) {
 	$('.recipe_title p').text(recipe.title);
 
 	$('.recipe_img').css('background-image', `url(${recipe.image})`);
