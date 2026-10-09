@@ -8,3 +8,4 @@ test.db
 **/*copy*
 **/signup*
 creds.py
+.idea/
