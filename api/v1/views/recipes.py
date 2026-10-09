@@ -30,8 +30,10 @@ def get_random_recipes():
             new_recipes = []
             recipes = response.json().get("recipes")
             return recipes
+        else:
+            return jsonify({"error": "Failed to fetch random recipes"}), response.status_code
     except requests.exceptions.RequestException:
-        return None
+        return jsonify({"error": "Request failed"}), 500
 
 
 @api_views.route('/recipes/find_by_ingr/<ingredients>', methods=['GET'], strict_slashes=False)

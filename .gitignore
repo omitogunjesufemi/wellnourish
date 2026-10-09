@@ -2,9 +2,11 @@
 **/.*.swp
 **/.*.swo
 venv/
+.venv/
 **/*.db
 test.db
 **/nothing
 **/*copy*
 **/signup*
 creds.py
+.idea/
