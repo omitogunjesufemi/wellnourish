@@ -7,7 +7,7 @@ $(document).ready(() => {
   });
 
   // Get the popular recipes
-  $.get('http://127.0.0.1:5001/api/v1/recipes', function (data) {
+  $.get('/api/v1/recipes', function (data) {
     const len = data.length;
     for (const recipe of data) {
       if (recipe.spoonacularScore >= 50) {
@@ -81,18 +81,18 @@ $(document).ready(() => {
     const ingrs = $('.search-box input').val();
     const userDiet = $('#user_diets').text();
     const userIntol = $('#user_intolerances').text();
-    let sUrl = `http://127.0.0.1:5001/api/v1/recipes/find_by_ingr/${ingrs}`;
+    let sUrl = `/api/v1/recipes/find_by_ingr/${ingrs}`;
 
     if (userDiet && userIntol) {
-	sUrl = `http://127.0.0.1:5001/api/v1/recipes/find_by_ingr/${ingrs}/${userDiet}/${userIntol}/0`;
+	sUrl = `/api/v1/recipes/find_by_ingr/${ingrs}/${userDiet}/${userIntol}/0`;
 	console.log(sUrl);
     }
     else if (userDiet) {
-	sUrl = `http://127.0.0.1:5001/api/v1/recipes/find_by_ingr/${ingrs}/d/${userDiet}/0`;
+	sUrl = `/api/v1/recipes/find_by_ingr/${ingrs}/d/${userDiet}/0`;
 	console.log(sUrl);
     }
     else if (userIntol) {
-	sUrl = `http://127.0.0.1:5001/api/v1/recipes/find_by_ingr/${ingrs}/t/${userIntol}/0`;
+	sUrl = `/api/v1/recipes/find_by_ingr/${ingrs}/t/${userIntol}/0`;
 	console.log(sUrl);
     }
 
@@ -143,21 +143,21 @@ $(document).ready(() => {
       if (Object.values(selectedDiet).length != 0 && Object.values(selectedIntolerance).length != 0) {
 	  let sDiet = Object.values(selectedDiet).join(',');
 	  let sIntol = Object.values(selectedIntolerance).join(',');
-	  searchUrl = `http://127.0.0.1:5001/api/v1/recipes/find_by_ingr/${ingrs}/${sDiet}/${sIntol}/0`;
+	  searchUrl = `/api/v1/recipes/find_by_ingr/${ingrs}/${sDiet}/${sIntol}/0`;
       }
 
       else if (Object.values(selectedDiet).length != 0) {
 	  let sDiet = Object.values(selectedDiet).join(',');
-	  searchUrl = `http://127.0.0.1:5001/api/v1/recipes/find_by_ingr/${ingrs}/d/${sDiet}/0`;
+	  searchUrl = `/api/v1/recipes/find_by_ingr/${ingrs}/d/${sDiet}/0`;
       }
 
       else if (Object.values(selectedIntolerance).length != 0) {
 	  let sIntol = Object.values(selectedIntolerance).join(',');
-	  searchUrl = `http://127.0.0.1:5001/api/v1/recipes/find_by_ingr/${ingrs}/i/${sIntol}/0`;
+	  searchUrl = `/api/v1/recipes/find_by_ingr/${ingrs}/i/${sIntol}/0`;
       }
 
       else {
-	  searchUrl = `http://127.0.0.1:5001/api/v1/recipes/find_by_ingr/${ingrs}/0`;
+	  searchUrl = `/api/v1/recipes/find_by_ingr/${ingrs}/0`;
       }
 
     console.log(searchUrl);
@@ -221,21 +221,21 @@ $(document).ready(() => {
       if (Object.values(selectedDiet).length != 0 && Object.values(selectedIntolerance).length != 0) {
 	  let sDiet = Object.values(selectedDiet).join(',');
 	  let sIntol = Object.values(selectedIntolerance).join(',');
-	  searchUrl = `http://127.0.0.1:5001/api/v1/recipes/find_by_ingr/${ingrs}/${sDiet}/${sIntol}/${offset}`;
+	  searchUrl = `/api/v1/recipes/find_by_ingr/${ingrs}/${sDiet}/${sIntol}/${offset}`;
       }
 
       else if (Object.values(selectedDiet).length != 0) {
 	  let sDiet = Object.values(selectedDiet).join(',');
-	  searchUrl = `http://127.0.0.1:5001/api/v1/recipes/find_by_ingr/${ingrs}/d/${sDiet}/${offset}`;
+	  searchUrl = `/api/v1/recipes/find_by_ingr/${ingrs}/d/${sDiet}/${offset}`;
       }
 
       else if (Object.values(selectedIntolerance).length != 0) {
 	  let sIntol = Object.values(selectedIntolerance).join(',');
-	  searchUrl = `http://127.0.0.1:5001/api/v1/recipes/find_by_ingr/${ingrs}/i/${sIntol}/${offset}`;
+	  searchUrl = `/api/v1/recipes/find_by_ingr/${ingrs}/i/${sIntol}/${offset}`;
       }
 
       else {
-	  searchUrl = `http://127.0.0.1:5001/api/v1/recipes/find_by_ingr/${ingrs}/${offset}`;
+	  searchUrl = `/api/v1/recipes/find_by_ingr/${ingrs}/${offset}`;
       }
 
     console.log(searchUrl);
